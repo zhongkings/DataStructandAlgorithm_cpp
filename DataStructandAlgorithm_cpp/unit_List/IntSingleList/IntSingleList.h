@@ -1,27 +1,26 @@
 #pragma once
-#include <iostream>
-#include <exception>
+#include <stdio.h>
 
 class IntSingleList
 {
-// node
+	// node
 private:
-	 class Node 
-	 {
-	 public:
-		Node(int info = 0, Node* next = NULL);
+	class Node
+	{
+	public:
+		Node(int info = 0, Node * next = NULL);
 		~Node();
 		void setInfo(int info);
-		void setNext(Node *next);
+		void setNext(Node* next);
 		int getInfo() const;
 		Node* getNext() const;
-	 private:
-		 int info;
-		 Node* next;
-	 };
+	private:
+		int info;
+		Node* next;
+	};
 
 private:
-	Node* head, *tail;
+	Node* head, * tail;
 	int size;
 
 public:

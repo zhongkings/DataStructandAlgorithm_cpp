@@ -1,6 +1,5 @@
 #include "IntSingleList.h"
 #include "dsError.h"
-#include <iostream>
 
 //IntSingleList->Node
 IntSingleList::Node::Node(int info, Node * next) 
@@ -185,6 +184,7 @@ void IntSingleList::removeOfValue(int info) {
 
 	if (iterator == NULL) //不存在值，直接退出
 		return;
+
 	Node* askDelNode = priexIt->getNext();
 	priexIt->setNext(askDelNode->getNext());
 

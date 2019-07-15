@@ -1,5 +1,8 @@
 #include "IntSingleList.h"
+#include "SkipList.h"
+#include "SkipList.cpp"
 #include <iostream>
+
 using namespace std;
 
 ostream& operator << (ostream& os, IntSingleList& isl)
@@ -17,13 +20,5 @@ ostream& operator << (ostream& os, IntSingleList& isl)
 
 int main() 
 {
-	IntSingleList isl;
-	for (int i = 0; i < 10; i++)
-		isl.addtoTail(i);
-
-	isl.insert(520, 1);
-	isl.removeOfValue(520);
-	cout << isl;
-	cout << "\nsize: " << isl.howsize();
 	return 0;
 }
