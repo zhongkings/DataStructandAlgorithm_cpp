@@ -11,8 +11,5 @@ namespace cui
 			  const CBackGroundColor& backColor = enmCBC_Black);
 
 		std::string in();
-
-		void setIstream(const std::istream& is);
-		std::istream getIstream() const;
 	};
 };

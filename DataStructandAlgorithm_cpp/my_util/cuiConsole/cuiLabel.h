@@ -7,9 +7,14 @@ namespace cui
 	{
 	public:
 		Label(const std::string& content,
-			const CPrintStyle& style = enmStyle_Normal,
-			const CForeGroundColor& foreColor = enmCFC_White,
-			const CBackGroundColor& backColor = enmCBC_Black);
+			  const CPrintStyle& style = enmStyle_Normal,
+			  const CForeGroundColor& foreColor = enmCFC_White,
+			  const CBackGroundColor& backColor = enmCBC_Black);
 
+		Label(const int& length, const std::string& content,
+			  const CPrintStyle& style = enmStyle_Normal,
+			  const CForeGroundColor& foreColor = enmCFC_White,
+			  const CBackGroundColor& backColor = enmCBC_Black);
+		std::string print();
 	};
 };

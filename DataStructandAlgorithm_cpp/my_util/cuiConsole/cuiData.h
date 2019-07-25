@@ -1,5 +1,6 @@
 #pragma once
 #include <Windows.h>
+#include <string>
 
 namespace cui
 {
@@ -9,10 +10,9 @@ namespace cui
 	//Dirction
 	enum CPrintDirction
 	{
-		enmDir_Up    = 72,
-		enmDir_Down  = 80,
-		enmDir_Left  = 75,
-		enmDir_Right = 77,
+		enmDir_Center = 74,
+		enmDir_Left   = 75,
+		enmDir_Right  = 77,
 	};
 
 	//Key
@@ -30,7 +30,7 @@ namespace cui
 		enmStyle_Lines  = 32768,
 	};
 
-	//Color
+	//ForeColor
 	enum CForeGroundColor
 	{
 		enmCFC_Red = FOREGROUND_INTENSITY | FOREGROUND_RED,
@@ -45,6 +45,7 @@ namespace cui
 		enmCFC_Black = 0,
 	};
 
+	//BackColor
 	enum CBackGroundColor
 	{
 		enmCBC_Red = BACKGROUND_INTENSITY | BACKGROUND_RED,
@@ -56,5 +57,13 @@ namespace cui
 		enmCBC_White = BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE,
 		enmCBC_HighWhite = BACKGROUND_INTENSITY | BACKGROUND_RED | BACKGROUND_GREEN | BACKGROUND_BLUE,
 		enmCBC_Black = 0,
+	};
+
+
+	//ElementType
+	enum CElementType
+	{
+		enmCET_out,
+		enmCET_in
 	};
 };

@@ -54,10 +54,40 @@
     <ClInclude Include="cuiWidget.h">
       <Filter>头文件\Widget</Filter>
     </ClInclude>
+    <ClInclude Include="cuiCanvas.h">
+      <Filter>头文件\Widget\Out</Filter>
+    </ClInclude>
+    <ClInclude Include="cuiLayout.h">
+      <Filter>头文件\Layout</Filter>
+    </ClInclude>
+    <ClInclude Include="cuiVec2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="runMain.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiWidget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiLayout.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiInput.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiIn.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiSingleInput.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiLabel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiProgressbar.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

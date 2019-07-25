@@ -1,7 +1,0 @@
-﻿  main.cpp
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(40,47): error C2584:  “ABC”: 直接基“A”不可访问；已是“B”的基
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(6): message :  参见“A”的声明
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(17): message :  参见“B”的声明
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(41,1): error C2584:  “ABC”: 直接基“A”不可访问；已是“C”的基
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(6): message :  参见“A”的声明
-F:\Documentation\VS Project\DataStructandAlgorithm_cpp\my_util\test\virtualBase_Test.h(26): message :  参见“C”的声明

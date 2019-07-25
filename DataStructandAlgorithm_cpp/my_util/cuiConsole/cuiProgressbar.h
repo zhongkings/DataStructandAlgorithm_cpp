@@ -6,25 +6,32 @@ namespace cui
 	class Progressbar : public Out
 	{
 	private:
-		int min;
-		int max;
-		int change;
+		float minValue;
+		float maxValue;
+		float changeValue;
+		std::string marchChars;
 
 	public:
-		Progressbar(const int& min, const int& max, const int& change,
-			        const CPrintStyle& style = enmStyle_Normal,
-			        const CForeGroundColor& foreColor = enmCFC_White,
-			        const CBackGroundColor& backColor = enmCBC_Black);
+		Progressbar(const float& min, const float& max, const int& length,
+			const CPrintStyle& style = enmStyle_Normal,
+			const CForeGroundColor& froeColor = enmCFC_HighWhite,
+			const CBackGroundColor& backColor = enmCBC_Black);
 
-		void setMin(const int& min);
-		int getMin() const;
+		void setMin(const float& min);
+		float getMin() const;
 
-		void setMax(const int& max);
-		int getMax() const;
+		void setMax(const float& max);
+		float getMax() const;
 
-		void setChange(const int& change);
-		int getChange() const;
+		void setChange(const float& value);
+		float getChange() const;
 
-		virtual std::string print();
+		void setPathChars(const std::string& pathChars);
+		std::string getPathChars(const std::string& pathChars) const;
+
+		void setMarchChars(const std::string& marchChars);
+		std::string getMarchChars(const std::string& marchChars) const;
+
+		std::string print();
 	};
 };
