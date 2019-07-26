@@ -1,6 +1,7 @@
 #pragma once
 #include "cuiData.h"
 #include <string>
+#include <iostream>
 
 namespace cui
 {
@@ -25,6 +26,8 @@ namespace cui
 			const CForeGroundColor& foreColor = enmCFC_White,
 			const CBackGroundColor& backColor = enmCBC_Black);
 
+		virtual ~Widget();
+
 		void setPos(const short& x, const short& y);
 
 		void setX(const short& x);
@@ -47,6 +50,6 @@ namespace cui
 		void setBackColor(const CBackGroundColor& backColor);
 		CBackGroundColor getBackColor() const;
 
-		virtual std::string print();
+		virtual void print();
 	};
 };

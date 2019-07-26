@@ -9,13 +9,18 @@ namespace cui
 		float minValue;
 		float maxValue;
 		float changeValue;
-		std::string marchChars;
+		Widget marchWidget;
 
 	public:
 		Progressbar(const float& min, const float& max, const int& length,
-			const CPrintStyle& style = enmStyle_Normal,
-			const CForeGroundColor& froeColor = enmCFC_HighWhite,
-			const CBackGroundColor& backColor = enmCBC_Black);
+			const CPrintStyle& marchstyle = enmStyle_Normal,
+			const CForeGroundColor& marchfroeColor = enmCFC_Green,
+			const CBackGroundColor& marchbackColor = enmCBC_Black,
+			const CPrintStyle& pathstyle = enmStyle_Normal,
+			const CForeGroundColor& pathfroeColor = enmCFC_White,
+			const CBackGroundColor& pathbackColor = enmCBC_Black);
+
+		virtual ~Progressbar();
 
 		void setMin(const float& min);
 		float getMin() const;
@@ -26,12 +31,10 @@ namespace cui
 		void setChange(const float& value);
 		float getChange() const;
 
-		void setPathChars(const std::string& pathChars);
-		std::string getPathChars(const std::string& pathChars) const;
+		Widget& getPathChars();
 
-		void setMarchChars(const std::string& marchChars);
-		std::string getMarchChars(const std::string& marchChars) const;
+		Widget& getMarchChars();
 
-		std::string print();
+		virtual void print();
 	};
 };

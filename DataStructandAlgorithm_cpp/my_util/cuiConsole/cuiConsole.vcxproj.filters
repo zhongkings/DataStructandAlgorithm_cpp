@@ -63,11 +63,11 @@
     <ClInclude Include="cuiVec2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="cuiNumLists.h">
+      <Filter>头文件\Widget\Out</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="runMain.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
     <ClCompile Include="cuiWidget.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -88,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="cuiProgressbar.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="runMain.cpp">
+      <Filter>main</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,13 +1,21 @@
 #include "cuiProgressbar.h"
 
 cui::Progressbar::Progressbar(const float& min, const float& max, const int& length,
-	const CPrintStyle& style,
-	const CForeGroundColor& froeColor,
-	const CBackGroundColor& backColor) : 
+	const CPrintStyle& marchstyle,
+	const CForeGroundColor& marchfroeColor,
+	const CBackGroundColor& marchbackColor,
+	const CPrintStyle& pathstyle,
+	const CForeGroundColor& pathfroeColor,
+	const CBackGroundColor& pathbackColor) :
 	minValue(min), maxValue(max), changeValue(maxValue / 2),
-    Widget("-", length, style, froeColor, backColor), marchChars(">")
+    Widget("-", length, pathstyle, pathfroeColor, pathbackColor), marchWidget(">", marchstyle, marchfroeColor, marchbackColor)
 {
 	
+}
+
+cui::Progressbar::~Progressbar()
+{
+
 }
 
 void cui::Progressbar::setMin(const float& min)
@@ -43,40 +51,28 @@ float cui::Progressbar::getChange() const
 	return changeValue;
 }
 
-void cui::Progressbar::setPathChars(const std::string& pathChars)
+cui::Widget& cui::Progressbar::getPathChars()
 {
-	this->content = pathChars;
+	return *this;
 }
 
-std::string cui::Progressbar::getPathChars(const std::string& pathChars) const
+cui::Widget& cui::Progressbar::getMarchChars()
 {
-	return content;
+	return marchWidget;
 }
 
-void cui::Progressbar::setMarchChars(const std::string& marchChars)
+void cui::Progressbar::print()
 {
-	this->marchChars = marchChars;
-}
-
-std::string cui::Progressbar::getMarchChars(const std::string& marchChars) const
-{
-	return marchChars;
-}
-
-
-std::string cui::Progressbar::print()
-{
-	std::string str;
 	float percentage = changeValue / maxValue;
 	float printCount = percentage * (float)length;
-
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreColor | backColor | style);
 	for (int i = 0; i < length; i++) {
-		if (i < printCount)
-			str.append(marchChars);
-		else
-			str.append(content);
+		if (i < printCount) {
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), marchWidget.getForeColor() | marchWidget.getBackColor() | marchWidget.getStyle());
+			std::cout << marchWidget.getContent();
+		}
+		else {
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreColor | backColor | style);
+			std::cout << content;
+		}
 	}
-
-	return str;
 }

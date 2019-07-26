@@ -15,6 +15,8 @@ namespace cui
 			  const CPrintStyle& style = enmStyle_Normal,
 			  const CForeGroundColor& foreColor = enmCFC_White,
 			  const CBackGroundColor& backColor = enmCBC_Black);
-		std::string print();
+
+		virtual ~Label();
+		virtual void print();
 	};
 };

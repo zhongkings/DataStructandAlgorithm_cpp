@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{6FA7A171-1303-4F9C-BAC4-F59BE6265256}</ProjectGuid>
-    <RootNamespace>cuiConsole</RootNamespace>
+    <ProjectGuid>{802962D5-7199-40F8-9995-16AECD52F5A0}</ProjectGuid>
+    <RootNamespace>test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,28 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cuiCanvas.h" />
-    <ClInclude Include="cuiData.h" />
-    <ClInclude Include="cuiNumLists.h" />
-    <ClInclude Include="cuiVec2.h" />
-    <ClInclude Include="cuiIn.h" />
-    <ClInclude Include="cuiInput.h" />
-    <ClInclude Include="cuiLayout.h" />
-    <ClInclude Include="cuiOut.h" />
-    <ClInclude Include="cuiLabel.h" />
-    <ClInclude Include="cuiProgressbar.h" />
-    <ClInclude Include="cuiWidget.h" />
-    <ClInclude Include="cuiSingleInput.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="cuiIn.cpp" />
-    <ClCompile Include="cuiInput.cpp" />
-    <ClCompile Include="cuiLabel.cpp" />
-    <ClCompile Include="cuiLayout.cpp" />
-    <ClCompile Include="cuiProgressbar.cpp" />
-    <ClCompile Include="cuiSingleInput.cpp" />
-    <ClCompile Include="cuiWidget.cpp" />
-    <ClCompile Include="runMain.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

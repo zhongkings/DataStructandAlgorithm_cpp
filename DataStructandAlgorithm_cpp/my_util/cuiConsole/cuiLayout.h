@@ -2,21 +2,18 @@
 #include "cuiOut.h"
 #include "cuiIn.h"
 #include "cuiVec2.h"
-#include <list>
+#include <vector>
 #include <map>
-#include <tuple>
+#include <memory>
 
 namespace cui
 {
-	class Layout : public std::list<Widget*>
+	class Layout : public std::vector<Widget*>
 	{
 	protected:
-		typedef std::tuple<int, int> IIple;
 		std::map<Vec2, CElementType> posMaps;
-
 		int width, height;
 		int cuMax_X, cuMax_Y;
-		Widget spaceChar;
 		In* inWidget;
 		HANDLE handle;
 
@@ -28,13 +25,12 @@ namespace cui
 
 		void unload(const int& x, const int& y);
 
-		void nextPage();
-
-		void prevPage();
-
 		void clear();
 
+		void clearBuffer();
+
 		void print();
+
 
 		std::string select();
 
@@ -54,7 +50,5 @@ namespace cui
 		int getcuMax_X() const;
 
 		int getcuMax_Y() const;
-
-		Widget& getSpaceChar();
 	};
 };

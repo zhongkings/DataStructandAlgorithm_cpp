@@ -9,6 +9,11 @@ cui::SingleInput::SingleInput(const CPrintStyle& style,
 
 }
 
+cui::SingleInput::~SingleInput()
+{
+
+}
+
 std::string cui::SingleInput::in()
 {
 	std::string str;

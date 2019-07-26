@@ -8,6 +8,11 @@ cui::Input::Input(const CPrintStyle& style,
 
 }
 
+cui::Input::~Input()
+{
+
+}
+
 std::string cui::Input::in()
 {
 	std::string str;

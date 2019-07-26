@@ -10,6 +10,8 @@ namespace cui
 			        const CForeGroundColor& foreColor = enmCFC_White,
 			        const CBackGroundColor& backColor = enmCBC_Black);
 		
+		virtual ~SingleInput();
+
 		std::string in();
 	};
 };

@@ -3,24 +3,14 @@
 #include <iostream>
 
 cui::Layout::Layout(int width, int height, HANDLE handle) :
-width(width), height(height), handle(handle), spaceChar(" | "), inWidget(new Input()), cuMax_X(0), cuMax_Y(0)
+width(width), height(height), handle(handle), inWidget(new Input()), cuMax_X(0), cuMax_Y(0)
 {
 
 }
  
 cui::Layout::~Layout()
 {
-	if (inWidget != NULL)
-		delete inWidget;
-
-	auto it = begin();
-	for (it; it != end(); it++) {
-		if ((*it) != NULL)
-			delete (*it);
-	}
-
-	std::list<Widget*>::clear();
-	posMaps.clear();
+	
 }
 
 void cui::Layout::install(const int& x, const int& y, const CElementType& cet)
@@ -34,8 +24,20 @@ void cui::Layout::install(const int& x, const int& y, const CElementType& cet)
 	if (y > cuMax_Y)
 		cuMax_Y = y;
 
-	Vec2 vec(x, y);
-	posMaps.insert(std::make_pair(vec, cet));
+	//看看是否有同样的位置
+	auto posMapit = posMaps.begin();
+	for (posMapit; posMapit != posMaps.end(); posMapit++) {
+		if (posMapit->first.x == x && posMapit->first.y == y)
+			break;
+	}
+
+	if (posMapit != posMaps.end()) {
+		posMapit->second = cet;
+	}
+	else {
+		Vec2 vec(x, y);
+		posMaps.insert(std::make_pair(vec, cet)); //没有就添加一个
+	}
 }
 
 void cui::Layout::unload(const int& x, const int& y)
@@ -75,18 +77,23 @@ void cui::Layout::unload(const int& x, const int& y)
 	}
 }
 
-void cui::Layout::nextPage()
-{
-
-}
-
-void cui::Layout::prevPage()
-{
-
-}
-
-
 void cui::Layout::clear()
+{
+	cuMax_X = 0;
+	cuMax_Y = 0;
+
+	while (size()) {
+		auto it = (--end());
+		Widget* widget = *it;
+		pop_back();
+
+		delete widget;
+	}
+
+	posMaps.clear();
+}
+
+void cui::Layout::clearBuffer()
 {
 	SetConsoleTextAttribute(handle, enmCFC_White | enmCBC_Black | enmStyle_Normal);
 	system("cls");
@@ -95,37 +102,35 @@ void cui::Layout::clear()
 void cui::Layout::print()
 {
 	auto posIt = posMaps.begin();
-	auto it = begin(); //list
-	int cuInterval = 0;
+	auto it = begin();  //list
+	int cuInterval = 0; //检查字符串的长度
 	int cuY = 0; //检查是否换一行
+	bool ifaddspaceChar = true;
+
 	for (posIt; posIt != posMaps.end() && it != end(); posIt++) {
 		Vec2 vec = posIt->first;
+
 		if (cuY != vec.y) {
 			cuInterval = 0;
 			cuY = vec.y;
 		}
-		COORD pos = { vec.x + cuInterval, vec.y };
 
+		COORD pos = { vec.x + cuInterval, vec.y };
 		switch (posIt->second) {
 		case enmCET_out:
-			(*it)->setX(pos.X);
-			(*it)->setY(pos.Y);
+			(*it)->setPos(pos.X, pos.Y);
 			SetConsoleCursorPosition(handle, pos);
-			std::cout << (*it)->print();
+
+			//打印widget
+			(*it)->print();
 			cuInterval += (*it)->getLength();
-
-			//检查是否最后的X，若果不是就添加间隔符
-			if (pos.X < cuMax_X) {
-				std::cout << spaceChar.print();
-				cuInterval += spaceChar.getLength();
-			}
-
 			it++;
 			break;
+
 		case enmCET_in:
 			inWidget->setX(pos.X);
 			inWidget->setY(pos.Y);
-			//这次循环不需要outLs迭代
+			//这次for不需要outLs迭代
 			break;
 		}
 
@@ -193,9 +198,4 @@ int cui::Layout::getcuMax_X() const
 int cui::Layout::getcuMax_Y() const
 {
 	return cuMax_Y;
-}
-
-cui::Widget& cui::Layout::getSpaceChar()
-{
-	return spaceChar;
 }

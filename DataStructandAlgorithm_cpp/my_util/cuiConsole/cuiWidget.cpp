@@ -16,6 +16,11 @@ cui::Widget::Widget(const std::string& content, const int& length,
 
 }
 
+cui::Widget::~Widget()
+{
+	
+}
+
 void cui::Widget::setPos(const short& x, const short& y)
 {
 	this->x = x;
@@ -89,8 +94,8 @@ cui::CBackGroundColor cui::Widget::getBackColor() const
 	return backColor;
 }
 
-std::string cui::Widget::print()
+void cui::Widget::print()
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreColor | backColor | style);
-	return content;
+	std::cout << content;
 }

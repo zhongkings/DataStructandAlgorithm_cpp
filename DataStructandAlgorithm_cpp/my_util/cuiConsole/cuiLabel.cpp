@@ -15,10 +15,13 @@ cui::Label::Label(const int& length, const std::string& content,
 
 }
 
-std::string cui::Label::print()
+cui::Label::~Label()
 {
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreColor | backColor | style);
 
+}
+
+void cui::Label::print()
+{
 	std::string str;
 	if (content.size() < length) {
 		str = content;
@@ -31,5 +34,6 @@ std::string cui::Label::print()
 	else
 		str = content;
 
-	return str;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), foreColor | backColor | style);
+	std::cout << str;
 }
