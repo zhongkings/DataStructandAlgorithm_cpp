@@ -7,6 +7,6 @@ namespace cui
 	{
 	public:
 		virtual ~In() {}
-		virtual std::string in();
+		virtual std::string in() { return ""; }
 	};
 };

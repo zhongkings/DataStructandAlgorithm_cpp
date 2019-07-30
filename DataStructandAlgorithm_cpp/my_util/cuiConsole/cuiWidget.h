@@ -36,7 +36,9 @@ namespace cui
 		void setY(const short& y);
 		short getY() const;
 
-		int getLength() const;
+		virtual int getWidth() const;
+
+		virtual int getHeight() const;
 
 		void setStyle(const CPrintStyle& style);
 		CPrintStyle getStyle() const;

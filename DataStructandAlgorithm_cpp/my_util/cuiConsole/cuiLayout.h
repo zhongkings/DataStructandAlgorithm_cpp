@@ -1,14 +1,13 @@
 #pragma once
-#include "cuiOut.h"
+#include "cuiWidget.h"
 #include "cuiIn.h"
 #include "cuiVec2.h"
 #include <vector>
 #include <map>
-#include <memory>
 
 namespace cui
 {
-	class Layout : public std::vector<Widget*>
+	class Layout : public Widget, public std::vector<Widget*>
 	{
 	protected:
 		std::map<Vec2, CElementType> posMaps;
@@ -19,6 +18,7 @@ namespace cui
 
 	public:
 		Layout(int width, int height, HANDLE handle);
+		Layout(const std::string & title, int width, int height, HANDLE handle);
 		~Layout();
 
 		void install(const int& x, const int& y, const CElementType& cet);
@@ -29,7 +29,7 @@ namespace cui
 
 		void clearBuffer();
 
-		void print();
+		virtual void print();
 
 
 		std::string select();

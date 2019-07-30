@@ -63,7 +63,7 @@ namespace cui
 	//ElementType
 	enum CElementType
 	{
-		enmCET_out,
-		enmCET_in
+		enmCET_out = 1,
+		enmCET_in  = 2,
 	};
 };

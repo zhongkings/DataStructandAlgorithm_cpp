@@ -1,36 +1,24 @@
 #include <iostream>
-#include <list>
-#include <string>
-#include <memory>
 #include <vector>
+#include <algorithm>
 using namespace std;
-#define MAX 10
 
-class IntClass
-{
-public:
-	int value;
 
-	IntClass(int value) : value(value) {}
-	IntClass():value(10) {}
-
-	~IntClass() {
-		cout << "Îö¹¹º¯Êý" << endl;
-	}
-};
-
-void printPtr(int *p)
-{
-	cout << p << endl;
-}
 
 int main()
 {
-	int* p1 = new int(102);
-	int* p2 = p1;
-	cout << p1 << endl;
-	cout << p2 << endl;
-	printPtr(p1);
+	vector<int> v1 = { 31, 12, 11, 0, 1, 2, 3,4,5,6,7,8,9 };
+	vector<int> v2 = { 0, 1, 2, 3,4,5,6,7,8,9 };
+	sort(begin(v1), end(v1));
+	for (auto itv1 = begin(v1); itv1 != end(v1); itv1++) {
+		for (auto itv2 = begin(v2); itv2 != end(v2); itv2++) {
+			if ((*itv1) == (*itv2))
+				itv1 = v1.erase(itv1);
+		}
+	}
+
+	for (auto it = begin(v1); it != end(v1); it++)
+		cout << *it << endl;
 
 	return 0;
 }

@@ -47,9 +47,14 @@ short cui::Widget::getY() const
 	return y;
 }
 
-int cui::Widget::getLength() const
+int cui::Widget::getWidth() const
 {
 	return length;
+}
+
+int cui::Widget::getHeight() const
+{
+	return 0;
 }
 
 void cui::Widget::setStyle(const CPrintStyle& style)

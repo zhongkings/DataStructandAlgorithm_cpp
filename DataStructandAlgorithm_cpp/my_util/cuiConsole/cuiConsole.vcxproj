@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -125,7 +125,7 @@
   <ItemGroup>
     <ClInclude Include="cuiCanvas.h" />
     <ClInclude Include="cuiData.h" />
-    <ClInclude Include="cuiNumLists.h" />
+    <ClInclude Include="cuiList.h" />
     <ClInclude Include="cuiVec2.h" />
     <ClInclude Include="cuiIn.h" />
     <ClInclude Include="cuiInput.h" />
@@ -137,10 +137,10 @@
     <ClInclude Include="cuiSingleInput.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cuiIn.cpp" />
     <ClCompile Include="cuiInput.cpp" />
     <ClCompile Include="cuiLabel.cpp" />
     <ClCompile Include="cuiLayout.cpp" />
+    <ClCompile Include="cuiList.cpp" />
     <ClCompile Include="cuiProgressbar.cpp" />
     <ClCompile Include="cuiSingleInput.cpp" />
     <ClCompile Include="cuiWidget.cpp" />

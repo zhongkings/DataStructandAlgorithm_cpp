@@ -63,7 +63,7 @@
     <ClInclude Include="cuiVec2.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="cuiNumLists.h">
+    <ClInclude Include="cuiList.h">
       <Filter>头文件\Widget\Out</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,9 +77,6 @@
     <ClCompile Include="cuiInput.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="cuiIn.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="cuiSingleInput.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -91,6 +88,9 @@
     </ClCompile>
     <ClCompile Include="runMain.cpp">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="cuiList.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -2,12 +2,18 @@
 #include "cuiInput.h"
 #include <iostream>
 
-cui::Layout::Layout(int width, int height, HANDLE handle) :
+cui::Layout::Layout(int width, int height, HANDLE handle) : Widget(),
 width(width), height(height), handle(handle), inWidget(new Input()), cuMax_X(0), cuMax_Y(0)
 {
 
 }
  
+cui::Layout::Layout(const std::string& title, int width, int height, HANDLE handle) : Widget(title),
+width(width), height(height), handle(handle), inWidget(new Input()), cuMax_X(0), cuMax_Y(0)
+{
+	SetConsoleTitle(title.c_str());
+}
+
 cui::Layout::~Layout()
 {
 	
@@ -103,33 +109,31 @@ void cui::Layout::print()
 {
 	auto posIt = posMaps.begin();
 	auto it = begin();  //list
-	int cuInterval = 0; //检查字符串的长度
-	int cuY = 0; //检查是否换一行
-	bool ifaddspaceChar = true;
+	int cuCountWidth = 0; //一行字符串的总长度
+	int cuCountHeight = 0; //检查下一个元素的Height是不是不同
 
-	for (posIt; posIt != posMaps.end() && it != end(); posIt++) {
+	for (posIt; posIt != posMaps.end(); posIt++) {
 		Vec2 vec = posIt->first;
 
-		if (cuY != vec.y) {
-			cuInterval = 0;
-			cuY = vec.y;
+		if (cuCountHeight != vec.y) {
+			cuCountWidth = 0;
+			cuCountHeight = vec.y;
 		}
 
-		COORD pos = { vec.x + cuInterval, vec.y };
+		//设置下一次输出位置
+		COORD pos = { vec.x + cuCountWidth, vec.y };
 		switch (posIt->second) {
 		case enmCET_out:
 			(*it)->setPos(pos.X, pos.Y);
 			SetConsoleCursorPosition(handle, pos);
-
-			//打印widget
 			(*it)->print();
-			cuInterval += (*it)->getLength();
+			cuCountWidth += (*it)->getWidth();
+			cuCountHeight += (*it)->getHeight();
 			it++;
 			break;
 
 		case enmCET_in:
-			inWidget->setX(pos.X);
-			inWidget->setY(pos.Y);
+			inWidget->setPos(pos.X, pos.Y);
 			//这次for不需要outLs迭代
 			break;
 		}
