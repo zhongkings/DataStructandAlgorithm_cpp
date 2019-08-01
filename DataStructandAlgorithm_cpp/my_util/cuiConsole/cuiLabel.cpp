@@ -1,4 +1,6 @@
 #include "cuiLabel.h"
+#include <iostream>
+
 cui::Label::Label(const std::string& content,
 	const CPrintStyle& style,
 	const CForeGroundColor& foreColor,

@@ -1,7 +1,6 @@
 #pragma once
 #include "cuiData.h"
 #include <string>
-#include <iostream>
 
 namespace cui
 {

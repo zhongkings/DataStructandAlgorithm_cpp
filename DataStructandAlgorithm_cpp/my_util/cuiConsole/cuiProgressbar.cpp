@@ -1,4 +1,5 @@
 #include "cuiProgressbar.h"
+#include <iostream>
 
 cui::Progressbar::Progressbar(const float& min, const float& max, const int& length,
 	const CPrintStyle& marchstyle,

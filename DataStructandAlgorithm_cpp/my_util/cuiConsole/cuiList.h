@@ -16,8 +16,11 @@ namespace cui
 
 		~List();
 
-		void pushVector(const std::vector<std::string>& strVs);
+		template<class Container>
+		void pushContainer(const Container& strCs);
+
 		void pushWidget(Widget* widget);
+
 		void create(const std::string& str);
 
 		void clear();
@@ -38,3 +41,6 @@ namespace cui
 		virtual void print();
 	};
 };
+
+#define CUILIST
+#include "cuiList.cpp"

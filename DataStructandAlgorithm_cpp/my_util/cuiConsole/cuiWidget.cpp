@@ -1,4 +1,5 @@
 #include "cuiWidget.h"
+#include <iostream>
 
 cui::Widget::Widget(const std::string& content,
 	const CPrintStyle & style, const CForeGroundColor & foreColor, const CBackGroundColor & backColor) :
